@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9651ae8b83df83d4d84c1e9d65c6b554, type: 3}
   m_Name: CardData_Charmender
   m_EditorClassIdentifier: 
-  FrontFace: {fileID: 0}
-  cardID: 0
+  FrontFace: {fileID: 21300000, guid: 1a3f7b930a14a3347b12fbdf153d832f, type: 3}
+  BackFace: {fileID: 21300000, guid: 137e31162f4352548a22caa5de7aa8f1, type: 3}
+  cardID: 2021401392
