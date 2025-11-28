@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9651ae8b83df83d4d84c1e9d65c6b554, type: 3}
-  m_Name: CardData_Bulbasaur
+  m_Name: CardData2_Venosaur
   m_EditorClassIdentifier: 
-  FrontFace: {fileID: 21300000, guid: 4f5b8344d102a18479b0cc065dcf2ac2, type: 3}
+  FrontFace: {fileID: 21300000, guid: 493593726e2e926468318d9b73313f63, type: 3}
   BackFace: {fileID: 21300000, guid: 137e31162f4352548a22caa5de7aa8f1, type: 3}
-  cardID: 1438890237
+  cardID: 273455262

@@ -3,13 +3,14 @@ using System;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace IndividualGames.CardMatch.Data
+namespace IndividualGames.CardMatch.Card
 {
     [CreateAssetMenu(fileName = "CardData", menuName = "IndividualGames/CardMatch/Card Data")]
     public class CardData : ScriptableObject
     {
-        [Header("Front Face Sprite")]
+        [Header("Sprites")]
         public Sprite FrontFace;
+        public Sprite BackFace;
 
         [Header("Generated Card ID (Read Only)")]
         [SerializeField] private int cardID;
