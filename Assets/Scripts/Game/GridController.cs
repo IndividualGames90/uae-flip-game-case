@@ -10,16 +10,11 @@ namespace IndividualGames.CardMatch.Game
         {
             Grid2x2,
             Grid2x3,
-            Grid5x6,
-            Custom
+            Grid5x6
         }
 
         [Header("Preset")]
         [SerializeField] private GridPreset gridPreset = GridPreset.Grid2x2;
-
-        [Header("Custom Grid( Requires one EVEN number )")]
-        [SerializeField] private int customRows = 2;
-        [SerializeField] private int customColumns = 2;
 
         [Header("References")]
         [SerializeField] private RectTransform container;
@@ -64,7 +59,6 @@ namespace IndividualGames.CardMatch.Game
             PositionCards();
         }
 
-
         private void ApplyPreset()
         {
             switch (gridPreset)
@@ -72,16 +66,13 @@ namespace IndividualGames.CardMatch.Game
                 case GridPreset.Grid2x2:
                     rows = 2; columns = 2;
                     break;
+
                 case GridPreset.Grid2x3:
                     rows = 2; columns = 3;
                     break;
+
                 case GridPreset.Grid5x6:
                     rows = 5; columns = 6;
-                    break;
-                case GridPreset.Custom:
-                default:
-                    rows = Mathf.Max(1, customRows);
-                    columns = Mathf.Max(1, customColumns);
                     break;
             }
         }
@@ -140,7 +131,6 @@ namespace IndividualGames.CardMatch.Game
                 }
             }
         }
-
 
         private void PositionCards()
         {
