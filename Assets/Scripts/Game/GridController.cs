@@ -1,7 +1,6 @@
 ﻿using IndividualGames.CardMatch.Card;
 using IndividualGames.CardMatch.MainMenu;
 using UnityEngine;
-using UnityEngine.XR;
 
 namespace IndividualGames.CardMatch.Game
 {
