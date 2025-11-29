@@ -7,10 +7,14 @@ namespace IndividualGames.CardMatch.Game
 {
     public class CardEventController : MonoBehaviour
     {
+        [SerializeField] private GameController gameController;
+
         public event Action<bool> CardsMatched;
 
         private CardController first;
         private CardController second;
+
+        private WaitForSeconds waitCardBackFlip = new(0.5f);
 
         public void RegisterCard(CardController card)
         {
@@ -42,6 +46,8 @@ namespace IndividualGames.CardMatch.Game
 
         private void EvaluateMatch()
         {
+            gameController.UpdateTurns();
+
             bool match = first.CardID == second.CardID;
 
             if (match)
@@ -63,7 +69,7 @@ namespace IndividualGames.CardMatch.Game
 
         private IEnumerator FlipBackRoutine()
         {
-            yield return new WaitForSeconds(0.5f);
+            yield return waitCardBackFlip;
 
             first.FlipClose();
             second.FlipClose();
