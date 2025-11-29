@@ -9,6 +9,7 @@ namespace IndividualGames.CardMatch.Game
     {
         [SerializeField] private GameController gameController;
         [SerializeField] private ScoreController scoreController;
+        [SerializeField] private AudioController audioController;
 
         public event Action<bool> CardsMatched;
 
@@ -29,6 +30,8 @@ namespace IndividualGames.CardMatch.Game
 
         private void HandleCardClicked(CardController card)
         {
+            audioController.PlayCardFlip();
+
             if (first == null)
             {
                 first = card;
@@ -44,7 +47,6 @@ namespace IndividualGames.CardMatch.Game
             }
         }
 
-
         private void EvaluateMatch()
         {
             gameController.UpdateTurns();
@@ -53,6 +55,7 @@ namespace IndividualGames.CardMatch.Game
 
             if (match)
             {
+                audioController.PlayMatchSuccess();
                 UnregisterCard(first);
                 UnregisterCard(second);
                 CardsMatched?.Invoke(true);
@@ -68,12 +71,15 @@ namespace IndividualGames.CardMatch.Game
                 return;
             }
 
+            audioController.PlayMatchFail();
             StartCoroutine(FlipBackRoutine());
         }
 
         private IEnumerator FlipBackRoutine()
         {
             yield return waitCardBackFlip;
+
+            audioController.PlayCardFlip();
 
             first.FlipClose();
             second.FlipClose();

@@ -11,6 +11,7 @@ namespace IndividualGames.CardMatch.Game
 
         [Header("Game Over")]
         [SerializeField] private GameObject gameOverPanel;
+        [SerializeField] private AudioController audioController;
 
         public int CurrentMatches => matches;
         private int turns;
@@ -57,6 +58,8 @@ namespace IndividualGames.CardMatch.Game
         {
             if (gameOverPanel != null)
                 gameOverPanel.SetActive(true);
+
+            audioController.PlayGameOver();
         }
 
         private void RefreshUI()
