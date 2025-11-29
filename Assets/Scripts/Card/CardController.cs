@@ -1,9 +1,8 @@
 using System;
-using IndividualGames.CardMatch.Card;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace IndividualGames.CardMatch.Game
+namespace IndividualGames.CardMatch.Card
 {
     public class CardController : MonoBehaviour
     {
@@ -13,6 +12,8 @@ namespace IndividualGames.CardMatch.Game
         [Header("Visual")]
         [SerializeField] private Image cardImage;
         [SerializeField] private Button cardButton;
+        [SerializeField] private CardFlipAnimation flipAnimation;
+        [SerializeField] private CardDestroyAnimation destroyAnimation;
 
         private bool isRevealed = false;
 
@@ -34,11 +35,6 @@ namespace IndividualGames.CardMatch.Game
             OnCardClicked?.Invoke(this);
         }
 
-        private void OnDestroy()
-        {
-            cardButton.onClick.RemoveListener(OnClick);
-        }
-
         public void Reveal()
         {
             isRevealed = true;
@@ -53,6 +49,39 @@ namespace IndividualGames.CardMatch.Game
 
             if (cardImage != null)
                 cardImage.sprite = cardData.BackFace;
+        }
+
+        public void FlipOpen()
+        {
+            if (isRevealed) return;
+
+            flipAnimation.OnFlipMidpoint = Reveal;
+            flipAnimation.PlayFlip();
+        }
+
+        public void FlipClose()
+        {
+            if (!isRevealed) return;
+
+            flipAnimation.OnFlipMidpoint = Hide;
+            flipAnimation.PlayFlip();
+        }
+
+
+        public void CardMatched()
+        {
+            destroyAnimation.AnimationCompleted += SelfDestroy;
+            destroyAnimation.Play();
+        }
+
+        public void SelfDestroy()
+        {
+            Destroy(gameObject);
+        }
+
+        private void OnDestroy()
+        {
+            cardButton.onClick.RemoveListener(OnClick);
         }
     }
 }
