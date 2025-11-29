@@ -74,6 +74,8 @@ namespace IndividualGames.CardMatch.Game
             first.FlipClose();
             second.FlipClose();
 
+            gameController.CardDestroyed(2);
+
             CardsMatched?.Invoke(false);
 
             first = null;

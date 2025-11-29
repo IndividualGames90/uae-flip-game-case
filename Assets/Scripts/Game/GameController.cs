@@ -16,6 +16,8 @@ namespace IndividualGames.CardMatch.Game
         private int turns;
         private int matches;
 
+        private int totalCards;
+
         private void Start()
         {
             RefreshUI();
@@ -23,6 +25,20 @@ namespace IndividualGames.CardMatch.Game
                 gameOverPanel.SetActive(false);
 
             UpdateMatches();
+        }
+
+        public void CardSpawned()
+        {
+            totalCards++;
+        }
+
+        public void CardDestroyed(int amount)
+        {
+            totalCards -= amount;
+            if (totalCards <= 0)
+            {
+                GameOver();
+            }
         }
 
         public void UpdateTurns()

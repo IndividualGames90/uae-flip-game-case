@@ -1,5 +1,7 @@
-using IndividualGames.CardMatch.Card;
+﻿using IndividualGames.CardMatch.Card;
+using IndividualGames.CardMatch.MainMenu;
 using UnityEngine;
+using UnityEngine.XR;
 
 namespace IndividualGames.CardMatch.Game
 {
@@ -23,6 +25,7 @@ namespace IndividualGames.CardMatch.Game
         [Header("References")]
         [SerializeField] private RectTransform container;
         [SerializeField] private CardEventController cardEventController;
+        [SerializeField] private GameController gameController;
 
         [Header("Prefab")]
         [SerializeField] private GameObject cardPrefab;
@@ -42,10 +45,26 @@ namespace IndividualGames.CardMatch.Game
 
         private void Start()
         {
+            switch (DifficultyController.CurrentDifficulty)
+            {
+                case DifficultyController.Difficulty.Easy:
+                    gridPreset = GridPreset.Grid2x2;
+                    break;
+
+                case DifficultyController.Difficulty.Medium:
+                    gridPreset = GridPreset.Grid2x3;
+                    break;
+
+                case DifficultyController.Difficulty.Hard:
+                    gridPreset = GridPreset.Grid5x6;
+                    break;
+            }
+
             ApplyPreset();
             BuildGrid();
             PositionCards();
         }
+
 
         private void ApplyPreset()
         {
@@ -114,6 +133,7 @@ namespace IndividualGames.CardMatch.Game
                     CardController card = go.GetComponent<CardController>();
 
                     card.Initialize(list[index]);
+                    gameController.CardSpawned();
                     cardEventController.RegisterCard(card);
                     cardSlots[r, c] = card;
 
