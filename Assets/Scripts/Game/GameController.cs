@@ -12,7 +12,7 @@ namespace IndividualGames.CardMatch.Game
         [Header("Game Over")]
         [SerializeField] private GameObject gameOverPanel;
 
-        public int CurrentTurns => turns;
+        public int CurrentMatches => matches;
         private int turns;
         private int matches;
 
@@ -47,9 +47,9 @@ namespace IndividualGames.CardMatch.Game
             RefreshUI();
         }
 
-        public void UpdateMatches()
+        public void UpdateMatches(int amount = 1)
         {
-            matches++;
+            matches += amount;
             RefreshUI();
         }
 
