@@ -14,10 +14,12 @@ namespace IndividualGames.CardMatch.MainMenu
 
         public static Difficulty CurrentDifficulty = Difficulty.Easy;
 
+        [Header("Buttons")]
         [SerializeField] private Button easyButton;
         [SerializeField] private Button mediumButton;
         [SerializeField] private Button hardButton;
 
+        [Header("Glare Indicators")]
         [SerializeField] private GameObject easyGlare;
         [SerializeField] private GameObject mediumGlare;
         [SerializeField] private GameObject hardGlare;

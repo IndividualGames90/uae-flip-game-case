@@ -992,12 +992,12 @@ GameObject:
   m_Component:
   - component: {fileID: 500763217}
   m_Layer: 5
-  m_Name: GlowGroup (1)
+  m_Name: GlowGroup Med.Hidden
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &500763217
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1368,12 +1368,12 @@ GameObject:
   m_Component:
   - component: {fileID: 884728278}
   m_Layer: 5
-  m_Name: GlowGroup (2)
+  m_Name: GlowGroup Hard .Hidden
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &884728278
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1672,12 +1672,12 @@ GameObject:
   m_Component:
   - component: {fileID: 1209736346}
   m_Layer: 5
-  m_Name: GlowGroup
+  m_Name: GlowGroup Easy.Hidden
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1209736346
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2708,6 +2708,9 @@ MonoBehaviour:
   easyButton: {fileID: 1780292357}
   mediumButton: {fileID: 404494458}
   hardButton: {fileID: 1554139106}
+  easyGlare: {fileID: 1209736345}
+  mediumGlare: {fileID: 500763216}
+  hardGlare: {fileID: 884728277}
 --- !u!1 &1665586962
 GameObject:
   m_ObjectHideFlags: 0
