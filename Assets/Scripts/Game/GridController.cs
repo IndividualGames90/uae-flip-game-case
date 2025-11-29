@@ -16,12 +16,13 @@ namespace IndividualGames.CardMatch.Game
         [Header("Preset")]
         [SerializeField] private GridPreset gridPreset = GridPreset.Grid2x2;
 
-        [Header("Custom Grid")]
+        [Header("Custom Grid( Requires one EVEN number )")]
         [SerializeField] private int customRows = 2;
         [SerializeField] private int customColumns = 2;
 
         [Header("References")]
         [SerializeField] private RectTransform container;
+        [SerializeField] private CardEventController cardEventController;
 
         [Header("Prefab")]
         [SerializeField] private GameObject cardPrefab;
@@ -113,6 +114,7 @@ namespace IndividualGames.CardMatch.Game
                     CardController card = go.GetComponent<CardController>();
 
                     card.Initialize(list[index]);
+                    cardEventController.RegisterCard(card);
                     cardSlots[r, c] = card;
 
                     index++;
