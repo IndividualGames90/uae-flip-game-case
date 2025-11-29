@@ -1296,6 +1296,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameController: {fileID: 1681770458}
+  scoreController: {fileID: 1907937404}
 --- !u!1 &966542700
 GameObject:
   m_ObjectHideFlags: 0
@@ -2130,6 +2131,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d57b16bc295805429c9702ed021b45a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreText: {fileID: 1293131953}
 --- !u!1 &1958030592
 GameObject:
   m_ObjectHideFlags: 0

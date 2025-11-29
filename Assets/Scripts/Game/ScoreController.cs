@@ -1,18 +1,36 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
-public class ScoreController : MonoBehaviour
+namespace IndividualGames.CardMatch.Game
 {
-    // Start is called before the first frame update
-    void Start()
+    public class ScoreController : MonoBehaviour
     {
-        
-    }
+        [SerializeField] private TMP_Text scoreText;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        private int score;
+        public int Score => score;
+
+        private void Awake()
+        {
+            ResetScore();
+        }
+
+        public void AddScore(int amount)
+        {
+            score += amount;
+            UpdateText();
+        }
+
+        public void ResetScore()
+        {
+            score = 0;
+            UpdateText();
+        }
+
+        private void UpdateText()
+        {
+            if (scoreText != null)
+                scoreText.text = score.ToString();
+        }
     }
 }

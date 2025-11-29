@@ -8,6 +8,7 @@ namespace IndividualGames.CardMatch.Game
     public class CardEventController : MonoBehaviour
     {
         [SerializeField] private GameController gameController;
+        [SerializeField] private ScoreController scoreController;
 
         public event Action<bool> CardsMatched;
 
@@ -60,6 +61,7 @@ namespace IndividualGames.CardMatch.Game
                 second.CardMatched();
 
                 gameController.CardDestroyed(2);
+                scoreController.AddScore(2);
 
                 first = null;
                 second = null;
